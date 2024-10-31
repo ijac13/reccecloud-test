@@ -1,0 +1,24 @@
+{
+  "name": "Recce CodeSpace",
+  "build": {
+      "dockerfile": "Dockerfile",
+  },
+  "containerEnv": {
+      "RECCE_STATE_PASSWORD": "${{ secrets.recce }}"
+  },
+  "forwardPorts": [8000],
+  "postStartCommand": "recce server --cloud --review"
+}
+
+// {
+//   "name": "Recce CodeSpace",
+//   "build": {
+//       "dockerfile": "Dockerfile",
+//       "context": "../../"
+//   },
+//   "features": {
+//       "ghcr.io/devcontainers/features/github-cli:1": {}
+//   },
+//   "forwardPorts": [8000],
+//   "postStartCommand": "./.devcontainer/script/post_start.sh"
+// }
